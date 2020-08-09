@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>biophora</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+  </head>
+
+  <body>
+  
+    <div class="wrapper">
+	    
+      <!-- Site Header with Navigation Bar -->
+      <header class="header">
+	  
+        <a class="logo" href="index.html"><h1>biophora</h1></a>
+      
+        <div class="search">
+          <input class="search-bar" type="search">
+          <input class="search-button" type="submit">
+        </div>
+      
+        <nav class="navbar">
+          <a class="navbutton transition" href="#">Главная</a>
+          <a class="navbutton transition" href="articles-indexer.html">Статьи</a>
+          <a class="navbutton transition" href="#">Книги</a>
+          <a class="navbutton transition" href="#">Видеоматериалы</a>
+          <a class="navbutton transition" href="#">О нас</a>
+        </nav>
+    
+	    </header> 
+	    <!-- End of Site Header with Navigation Bar -->
+      
+      <div class="content">
+      
+      {% block content %}
+      {% endblock %}
+
+      </div>
+      <!-- End of class="content" -->
+
+    </div> 
+    <!-- End of class="wrapper" -->
+  
+  </body>
+  
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 class="block-name">СТАТЬИ</h2>
+
+  <ul type="none" class="recent-articles-names">
+    {% for article in articles %}
+    <li><a href="article.html">{{ article.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
