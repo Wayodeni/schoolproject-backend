@@ -11,6 +11,6 @@ def articles_catalog(request):
 
 
 def article(request, pk):
-    # post = get_object_or_404(Post, pk=pk)
+    # post = get_object_or_404(Post, pk=pk) - получает обьекты, или если такого обьекта с таким pk в бд нет, выдает 404.
     post = Post.objects.get(pk=pk)
     return render(request, 'article.html', {'post': post})

@@ -19,6 +19,6 @@ from articles import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('articles_catalog/', views.articles_catalog),
+    path('articles_catalog/', views.articles_catalog, name='articles_catalog'),
     path('article/<int:pk>/', views.article, name='article')
 ]
