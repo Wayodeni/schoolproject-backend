@@ -14,11 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls.static import static #обязательно для того чтобы картика виднелась
 from django.urls import path
 from articles import views
+from schoolproject_backend import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles_catalog/', views.articles_catalog, name='articles_catalog'),
-    path('article/<int:pk>/', views.article, name='article')
-]
+    path('article/<int:pk>/', views.article, name='article'),
+    path('books_catalog/', views.books_catalog, name='books_catalog')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #обязательно для того чтобы картика виднелась
+
+
