@@ -6,14 +6,14 @@ from articles.models import *
 
 def articles_catalog(request):
     context = {}
-    context['articles'] = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    context['articles'] = Article.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'articles-catalog.html', context)
 
 
 def article(request, pk):
     # post = get_object_or_404(Post, pk=pk) - получает обьекты, или если такого обьекта с таким pk в бд нет, выдает 404.
-    post = Post.objects.get(pk=pk)
-    return render(request, 'article.html', {'post': post})
+    article = Article.objects.get(pk=pk)
+    return render(request, 'article.html', {'article': article})
 
 
 def books_catalog(request):
@@ -24,6 +24,22 @@ def books_catalog(request):
 def videos_catalog(request):
     videos = Video.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'videos_catalog.html', {'videos': videos})
+
+
+def recent(request):
+    articles = Article.objects.filter(published_date__lte=timezone.now()).order_by('published_date')[:3]
+    books = Book.objects.filter(published_date__lte=timezone.now()).order_by('published_date')[:3]
+    videos = Video.objects.filter(published_date__lte=timezone.now()).order_by('published_date')[:3]
+    context = {}
+    context['articles'] = articles
+    context['books'] = books
+    context['videos'] = videos
+    return render(request, 'recent.html', context)
+
+def about(request):
+    return render(request, 'about.html')
+
+
 
 
 

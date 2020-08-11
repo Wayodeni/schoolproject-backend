@@ -1,4 +1,8 @@
-    <p class="motd"><span class="motd-mainword">biophora</span> -
+{% extends 'base.html' %}
+
+
+{% block content %}
+<p class="motd"><span class="motd-mainword">biophora</span> -
         проверенный источник
         информации по биологии, не 
         бойтесь за авторитетность.</p>
@@ -6,12 +10,14 @@
         <div class="recent">
           
           <h2 class="block-name">ПОСЛЕДНИЕ СТАТЬИ</h2>
-          
-          <ul type="none" class="recent-articles-names">
-            <li><a href="article.html">Животные в нашем городе</a></li>
-            <li><a href="article.html">Рыбки в деревенском пруду</a></li>
-            <li><a href="article.html">Конечное состояние замкнутой экосистемы во время полного изолирования оппонента</a></li>
-          </ul>
+
+
+            <ul type="none" class="recent-articles-names">
+              {% for article in articles %}
+                <li><a href="{% url 'article' pk=article.pk %}">{{ article.title }}</a></li>
+              {% endfor %}
+            </ul>
+
           
         </div>
         <!-- End of class="recent-articles" -->
@@ -19,55 +25,39 @@
         <div class="recent">
           
           <h2 class="block-name">ПОСЛЕДНИЕ КНИГИ</h2>
-          
-          <div class="book-preview left">
-            <a href="#"><img src="img/testcover.jpg" height="200px"></a>
-            <p class="author-name">Иванов И. М.</p>
-            <p class="book-title">Введение в общую биологию</p>
-            <p class="book-description"> Эта книга предназначена для учеников старшей школы и является универсальным учебным пособием для школьников, изучающих биологию и, начинающих постигать анатомию.</p>
-          </div>
-          
-          <div class="book-preview">
-            <a href="#"><img src="img/testcover.jpg" height="200px"></a>
-            <p class="author-name">Иванов И. М.</p>
-            <p class="book-title">Введение в общую биологию</p>
-            <p class="book-description"> Эта книга предназначена для учеников старшей школы и является универсальным учебным пособием для школьников, изучающих биологию и, начинающих постигать анатомию.</p>
-          </div>
-          
-          <div class="book-preview right">
-            <a href="#"><img src="img/testcover.jpg" height="200px"></a>
-            <p class="author-name">Иванов И. М.</p>
-            <p class="book-title">Введение в общую биологию</p>
-            <p class="book-description"> Эта книга предназначена для учеников старшей школы и является универсальным учебным пособием для школьников, изучающих биологию и, начинающих постигать анатомию.</p>
-          </div>
-        
+
+          <ul type="none">
+            {% for book in books %}
+              <li class="book-preview" >
+                <ul type="none">
+                  <li><img src="{{ book.preview.url }}" height="200px"></li>
+                  <li class="book-title"><p>{{ book.title }}</p></li>
+                  <li class="author-name"><p>{{ book.author }}</p></li>
+                  <li class="book-description"><p>{{ book.description }}</p></li>
+                  <li><a href="{{ book.download_link }}"><p>Скачать</p></a></li>
+                </ul>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
         <!--End of class="recent-books"-->
         
         <div class="recent">
-          
           <h2 class="block-name">ПОСЛЕДНИЕ ВИДЕО</h2>
-          
-          <div class="video-preview left">
-            <a href="#"><img src="img/testvidpreview.jpg" height="70px"></a>
-            <p class="author-name">Автор видеоролика</p>
-            <p class="video-title">Название видеоролика</p>
-            <p class="video-description"> Краткое описание видеоролика.</p>
-          </div>
-          
-          <div class="video-preview">
-            <a href="#"><img src="img/testvidpreview.jpg" height="70px"></a>
-            <p class="author-name">Автор видеоролика</p>
-            <p class="video-title">Название видеоролика</p>
-            <p class="video-description"> Краткое описание видеоролика.</p>
-          </div>
-          
-          <div class="video-preview right">
-            <a href="#"><img src="img/testvidpreview.jpg" height="70px"></a>
-            <p class="author-name">Автор видеоролика</p>
-            <p class="video-title">Название видеоролика</p>
-            <p class="video-description"> Краткое описание видеоролика.</p>
-          </div>
+           <ul type="none">
+              {% for video in videos %}
+                <li class="video-preview" >
+                  <ul type="none">
+                    <li><img src="{{ video.preview.url }}" height="70px"></li>
+                    <li class="video-title"><p>{{ video.title }}</p></li>
+                    <li class="author-name"><p>{{ video.author }}</p></li>
+                    <li class="video-description"><p>{{ video.description }}</p></li>
+                    <li><a href="{{ video.watch_link }}"><p>Смотреть</p></a></li>
+                  </ul>
+                </li>
+              {% endfor %}
+            </ul>
           
         </div>
         <!-- End of class="recent-videos" -->
+{% endblock %}

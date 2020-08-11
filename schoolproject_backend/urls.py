@@ -24,7 +24,9 @@ urlpatterns = [
     path('articles_catalog/', views.articles_catalog, name='articles_catalog'),
     path('article/<int:pk>/', views.article, name='article'),
     path('books_catalog/', views.books_catalog, name='books_catalog'),
-    path('videos_catalog/', views.videos_catalog, name='videos_catalog')
+    path('videos_catalog/', views.videos_catalog, name='videos_catalog'),
+    path('', views.recent, name='recent'),
+    path('about/', views.about, name='about')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #обязательно для того чтобы картика виднелась
 
 
