@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <ul type="none">
+    {% for book in books %}
+      <li class="book-preview" >
+        <ul type="none">
+          <li><img src="{{ book.preview.url }}" height="200px"></li>
+          <li class="book-title"><p>{{ book.title }}</p></li>
+          <li class="author-name"><p>{{ book.author }}</p></li>
+          <li class="book-description"><p>{{ book.description }}</p></li>
+          <li><a href="{{ book.download_link }}"><p>Скачать</p></a></li>
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

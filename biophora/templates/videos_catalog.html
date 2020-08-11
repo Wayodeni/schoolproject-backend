@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <ul type="none">
+    {% for video in videos %}
+      <li class="video-preview" >
+        <ul type="none">
+          <li><img src="{{ video.preview.url }}" height="70px"></li>
+          <li class="video-title"><p>{{ video.title }}</p></li>
+          <li class="author-name"><p>{{ video.author }}</p></li>
+          <li class="video-description"><p>{{ video.description }}</p></li>
+          <li><a href="{{ video.watch_link }}"><p>Смотреть</p></a></li>
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
