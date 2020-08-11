@@ -15,6 +15,15 @@ def article(request, pk):
     post = Post.objects.get(pk=pk)
     return render(request, 'article.html', {'post': post})
 
+
 def books_catalog(request):
     books = Book.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'books-catalog.html', {'books': books})
+
+
+def videos_catalog(request):
+    videos = Video.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'videos_catalog.html', {'videos': videos})
+
+
+
