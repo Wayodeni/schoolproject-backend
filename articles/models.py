@@ -11,6 +11,11 @@ class Article(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
+    class Meta:
+        verbose_name = 'Статьи'
+        verbose_name_plural = 'Статьи'
+
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
@@ -29,6 +34,11 @@ class Book(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
+    class Meta:
+        verbose_name = 'Книги'
+        verbose_name_plural = 'Книги'
+
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
@@ -46,6 +56,11 @@ class Video(models.Model):
 
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'
+
 
     def publish(self):
         self.published_date = timezone.now()
