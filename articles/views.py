@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
 from articles.models import *
-
+from django.db.models import Q
 
 def articles_catalog(request):
     context = {}
@@ -36,10 +36,22 @@ def recent(request):
     context['videos'] = videos
     return render(request, 'recent.html', context)
 
+
 def about(request):
     return render(request, 'about.html')
 
 
+def search_results(request):
+    search_query = request.GET.get('search', '')
 
+    if search_query:
+        articles = Article.objects.filter(title__icontains=search_query)
+        books = Book.objects.filter(Q(title__icontains=search_query) | Q(description__icontains=search_query))
+        videos = Video.objects.filter(Q(title__icontains=search_query) | Q(description__icontains=search_query))
 
+    context = {}
+    context['articles'] = articles
+    context['books'] = books
+    context['videos'] = videos
 
+    return render(request, 'search-results.html', context)

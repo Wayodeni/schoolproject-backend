@@ -21,10 +21,10 @@
 	  
         <a class="logo" href="{% url 'recent' %}"><h1>biophora</h1></a>
       
-        <div class="search">
-          <input class="search-bar" type="search">
+        <form class="search" action="{% url 'search_results' %}">
+          <input class="search-bar" type="search" name="search">
           <input class="search-button" type="submit">
-        </div>
+        </form>
       
         <nav class="navbar">
           <a class="navbutton transition" href="{% url 'recent' %}">Главная</a>

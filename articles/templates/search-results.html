@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h2 class="block-name">СТАТЬИ</h2>
+
+  <ul type="none" class="recent-articles-names">
+    {% for article in articles %}
+      <li><a href="{% url 'article' pk=article.pk %}">{{ article.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+
+  <h2 class="block-name">КНИГИ</h2>
+
+  <ul type="none">
+    {% for book in books %}
+      <li class="book-preview" >
+        <ul type="none">
+          <li><img src="{{ book.preview.url }}" height="200px"></li>
+          <li class="book-title"><p>{{ book.title }}</p></li>
+          <li class="author-name"><p>{{ book.author }}</p></li>
+          <li class="book-description"><p>{{ book.description }}</p></li>
+          <li><a href="{{ book.download_link }}"><p>Скачать</p></a></li>
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+  <h2 class="block-name">ВИДЕО</h2>
+
+  <ul type="none">
+    {% for video in videos %}
+      <li class="video-preview" >
+        <ul type="none">
+          <li><img src="{{ video.preview.url }}" height="70px"></li>
+          <li class="video-title"><p>{{ video.title }}</p></li>
+          <li class="author-name"><p>{{ video.author }}</p></li>
+          <li class="video-description"><p>{{ video.description }}</p></li>
+          <li><a href="{{ video.watch_link }}"><p>Смотреть</p></a></li>
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+{% endblock %}
