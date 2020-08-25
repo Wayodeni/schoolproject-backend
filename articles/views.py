@@ -6,7 +6,7 @@ from django.db.models import Q
 
 def articles_catalog(request):
     context = {}
-    context['articles'] = Article.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    context['articles'] = Article.objects.order_by('-published_date')
     return render(request, 'articles-catalog.html', context)
 
 
@@ -17,19 +17,19 @@ def article(request, pk):
 
 
 def books_catalog(request):
-    books = Book.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    books = Book.objects.order_by('-published_date')
     return render(request, 'books-catalog.html', {'books': books})
 
 
 def videos_catalog(request):
-    videos = Video.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    videos = Video.objects.order_by('-published_date')
     return render(request, 'videos_catalog.html', {'videos': videos})
 
 
 def recent(request):
-    articles = Article.objects.filter(published_date__lte=timezone.now()).order_by('published_date')[:3]
-    books = Book.objects.filter(published_date__lte=timezone.now()).order_by('published_date')[:3]
-    videos = Video.objects.filter(published_date__lte=timezone.now()).order_by('published_date')[:3]
+    articles = Article.objects.order_by('-published_date')[:3]
+    books = Book.objects.order_by('-published_date')[:3]
+    videos = Video.objects.order_by('-published_date')[:3]
     context = {}
     context['articles'] = articles
     context['books'] = books
@@ -54,4 +54,6 @@ def search_results(request):
         context['books'] = books
         context['videos'] = videos
 
-    return render(request, 'search-results.html', context)
+        return render(request, 'search-results.html', context)
+    else:
+        return render(request, 'search-results.html')

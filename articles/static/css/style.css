@@ -41,6 +41,25 @@
   position: relative;
 }
 
+.search-bar {
+  width: 163px;
+  height: 14px;
+  border: 2px;
+  border-color: gray;
+  border-style: solid;
+}
+
+.search-button {
+  width: 66px;
+  height: 15px;
+  border: 2px;
+  font-size: 12px;
+  font-family: Roboto;
+  font-weight: 400;
+  border-color: black;
+  border-style: solid;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -136,6 +155,7 @@
 .book-preview {
   display: inline-block;
   width: 150px;
+  height: 397px;
   background-color: #f0f0f0;
   padding: 10px;
   box-shadow: 6px 6px 10px -5px rgba(0,0,0,0.5);
