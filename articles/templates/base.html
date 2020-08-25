@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>biophora</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
   </head>
 
   <body>
-  
+
+    <!-- Class="wrapper" -->
     <div class="wrapper">
 	    
       <!-- Site Header with Navigation Bar -->
@@ -34,13 +34,14 @@
           <a class="navbutton transition" href="{% url 'about' %}">О нас</a>
         </nav>
     
-	    </header> 
-	    <!-- End of Site Header with Navigation Bar -->
-      
+      </header>
+      <!-- End of Site Header with Navigation Bar -->
+
+      <!-- Class="content" -->
       <div class="content">
       
-      {% block content %}
-      {% endblock %}
+        {% block content %}
+        {% endblock %}
 
       </div>
       <!-- End of class="content" -->

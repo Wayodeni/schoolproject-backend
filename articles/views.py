@@ -49,9 +49,9 @@ def search_results(request):
         books = Book.objects.filter(Q(title__icontains=search_query) | Q(description__icontains=search_query))
         videos = Video.objects.filter(Q(title__icontains=search_query) | Q(description__icontains=search_query))
 
-    context = {}
-    context['articles'] = articles
-    context['books'] = books
-    context['videos'] = videos
+        context = {}
+        context['articles'] = articles
+        context['books'] = books
+        context['videos'] = videos
 
     return render(request, 'search-results.html', context)
