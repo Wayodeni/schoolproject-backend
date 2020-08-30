@@ -2,18 +2,22 @@
 
 {% block content %}
 
-  <ul type="none">
-    {% for video in videos %}
-      <li class="video-preview" >
-        <ul type="none">
-          <li><img src="{{ video.preview.url }}" height="70px"></li>
-          <li class="video-title"><p>{{ video.title }}</p></li>
-          <li class="author-name"><p>{{ video.author }}</p></li>
-          <li class="video-description"><p>{{ video.description }}</p></li>
-          <li><a href="{{ video.watch_link }}"><p>Смотреть</p></a></li>
-        </ul>
-      </li>
-    {% endfor %}
-  </ul>
+<h2 class="block-name">ВИДЕО</h2>
+
+<div class="videos grid">
+
+  {% for video in videos %}
+
+    <div class="video-preview">
+      <img src="{{ video.preview.url }}" height="70px">
+      <p class="video-title">{{ video.title }}</p>
+      <p class="preview-author-name">{{ video.author }}</p>
+      <p class="preview-description">{{ video.description }}</p>
+      <a href="{{ video.watch_link }}">Смотреть</a>
+    </div>
+
+  {% endfor %}
+
+</div>
 
 {% endblock %}

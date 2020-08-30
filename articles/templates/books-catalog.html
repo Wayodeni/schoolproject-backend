@@ -2,18 +2,22 @@
 
 {% block content %}
 
-  <ul type="none">
-    {% for book in books %}
-      <li class="book-preview" >
-        <ul type="none">
-          <li><img src="{{ book.preview.url }}" height="200px"></li>
-          <li class="book-title"><p>{{ book.title }}</p></li>
-          <li class="author-name"><p>{{ book.author }}</p></li>
-          <li class="book-description"><p>{{ book.description }}</p></li>
-          <li><a href="{{ book.download_link }}"><p>Скачать</p></a></li>
-        </ul>
-      </li>
-    {% endfor %}
-  </ul>
+<h2 class="block-name">КНИГИ</h2>
+
+<div class="books grid">
+
+  {% for book in books %}
+
+    <div class="book-preview" >
+      <img src="{{ book.preview.url }}" height="200px">
+      <p class="book-title">{{ book.title }}</p>
+      <p class="preview-author-name">{{ book.author }}</p>
+      <p class="preview-description">{{ book.description }}</p>
+      <a href="{{ book.download_link }}">Скачать</a>
+    </div>
+
+  {% endfor %}
+
+</div>
 
 {% endblock %}
