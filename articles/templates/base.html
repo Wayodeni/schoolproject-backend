@@ -13,42 +13,36 @@
 
   <body>
 
-    <!-- Class="wrapper" -->
-    <div class="wrapper">
-	    
-      <!-- Site Header with Navigation Bar -->
-      <header class="header">
-	  
+      <!-- START of Header with Navbar -->
+      <header>
+
         <a class="logo" href="{% url 'recent' %}"><h1>biophora</h1></a>
-      
+
         <form class="search" action="{% url 'search_results' %}">
           <input class="search-bar" type="search" name="search" value="">
           <input class="search-button" type="submit" value="Искать">
         </form>
-      
-        <nav class="navbar">
-          <a class="navbutton transition" href="{% url 'recent' %}">Главная</a>
-          <a class="navbutton transition" href="{% url 'articles_catalog' %}">Статьи</a>
-          <a class="navbutton transition" href="{% url 'books_catalog' %}">Книги</a>
-          <a class="navbutton transition" href="{% url 'videos_catalog' %}">Видеоматериалы</a>
-          <a class="navbutton transition" href="{% url 'about' %}">О нас</a>
-        </nav>
-    
-      </header>
-      <!-- End of Site Header with Navigation Bar -->
 
-      <!-- Class="content" -->
+        <nav>
+          <a href="{% url 'recent' %}">Главная</a>
+          <a href="{% url 'articles_catalog' %}">Статьи</a>
+          <a href="{% url 'books_catalog' %}">Книги</a>
+          <a href="{% url 'videos_catalog' %}">Видеоматериалы</a>
+          <a href="{% url 'about' %}">О нас</a>
+        </nav>
+
+      </header>
+      <!-- END of Header with Navbar -->
+
+      <!-- START of class="content" -->
       <div class="content">
-      
+
         {% block content %}
         {% endblock %}
 
       </div>
-      <!-- End of class="content" -->
+      <!-- END of class="content" -->
 
-    </div> 
-    <!-- End of class="wrapper" -->
-  
   </body>
-  
+
 </html>

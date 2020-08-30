@@ -5,8 +5,7 @@
   padding: 0;
 }
 
-/* Content wrapper */
-.wrapper {
+body {
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   height: 100%;
   margin: 0 auto;
@@ -15,10 +14,10 @@
   padding: 0 4px;
   font-family: Roboto, sans-serif;
 }
-/* End of Content wrapper */
+
 
 /* Site header */
-.header {
+header {
   height: 80px;
   margin: 0 auto;
   max-width: 750px;
@@ -60,16 +59,16 @@
   border-style: solid;
 }
 
-.navbar {
+nav {
   display: flex;
   justify-content: space-between;
   position: relative;
   top: 5px;
-}  
+}
 /* End of Site header */
 
 /* Navbuttons */
-.navbutton {
+nav a {
   background-color: #3a9f37;
   border-radius: 5px;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
@@ -80,19 +79,18 @@
   max-height: 28px;
   padding: 5px;
   text-decoration: none;
-}
-
-.transition{
   transition: 0.2s;
 }
 
-.navbutton:hover {
+nav a:hover {
   background-color: #c7e6c5;
   color: black;
+  transition: 0.2s;
 }
 
-.navbutton:active {
+nav a:active {
   background-color: white;
+  transition: 0.2s;
 }
 /* End of Navbuttons */
 
@@ -105,6 +103,7 @@
 .motd {
   font-size: 15px;
   font-weight: 400;
+  margin-bottom: 1vh;
 }
 
 .motd-mainword {
@@ -113,15 +112,25 @@
 }
 
 .recent {
-  margin: 5vh auto 0;
-  width: 80%;
-  height: 500px;
-/*  background-color: wheat;*/
+  margin: 1vh auto 3vh;
+}
+
+.grid {
+  display: grid;
+  justify-content: space-around;
+  grid-gap: 10px;
+}
+
+.videos {
+  grid-template-columns: repeat(auto-fit, 150px);
+}
+
+.books {
+  grid-template-columns: repeat(auto-fit, 170px);
 }
 
 .block-name {
   padding-bottom: 10px;
-  display: block;
   font-weight: 500;
 }
 
@@ -153,23 +162,15 @@
 /* Recent books */
 
 .book-preview {
-  display: inline-block;
   width: 150px;
-  height: 397px;
+  min-height: 397px;
   background-color: #f0f0f0;
   padding: 10px;
   box-shadow: 6px 6px 10px -5px rgba(0,0,0,0.5);
+  margin: 10px 0;
 }
 
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
-
-.author-name {
+.preview-author-name {
   display: inline-block;
   font-size: 13px;
   width: 150px;
@@ -181,7 +182,7 @@
   padding-bottom: 5px;
 }
 
-.book-description {
+.preview-description {
   font-size: 14px;
 }
 
@@ -190,11 +191,12 @@
 /* Recent videos */
 
 .video-preview {
-  display: inline-block;
   width: 130px;
+  min-height: 278px;
   background-color: #f0f0f0;
   padding: 10px;
   box-shadow: 6px 6px 10px -5px rgba(0,0,0,0.5);
+  margin: 10px 0;
 }
 
 .video-title {
@@ -202,15 +204,9 @@
   padding-bottom: 5px;
 }
 
-.video-description {
-  font-size: 14px;
-}
-
 /* End of Recent videos */
 
 /* End of Page content. */
-
-/* End of wrapper */
 
 
 /*===================================================*/
@@ -252,24 +248,27 @@ article p {
 
 /* Change parameters for smaller screens */
 @media screen and (max-width: 409px) {
-  
+
   .content {
     padding-top: 25px;
   }
-  
+
   .search {
     margin-left: 0;
     padding-top: 5px;
   }
-  
-  .navbutton {
+
+  nav a {
     font-size: 13px;
   }
+
 }
 
-@media screen and (max-width: 337px) {
-  .navbutton {
+@media screen and (max-width: 444px) {
+
+  nav a {
     font-size: 11px;
   }
+
 }
 /* End of Change parameters for smaller screens */
