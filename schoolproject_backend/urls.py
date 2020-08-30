@@ -13,9 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.conf.urls.static import static #обязательно для того чтобы картика виднелась
-from django.urls import path
+from django.urls import path, include
 from articles import views
 from schoolproject_backend import settings
 
@@ -27,7 +28,8 @@ urlpatterns = [
     path('videos_catalog/', views.videos_catalog, name='videos_catalog'),
     path('', views.recent, name='recent'),
     path('about/', views.about, name='about'),
-    path('search_results/', views.search_results, name='search_results')
+    path('search_results/', views.search_results, name='search_results'),
+    path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #обязательно для того чтобы картика виднелась
 
 

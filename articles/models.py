@@ -2,11 +2,13 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
+from tinymce.models import HTMLField
+
 
 class Article(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = HTMLField()
 
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
